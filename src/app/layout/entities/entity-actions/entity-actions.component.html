@@ -1,0 +1,57 @@
+
+<div class="jumbotron">
+    <h2>Ayuda</h2>
+    <p>
+        Aquí se muestra: <br>
+        - Crear nuevas entidades. <br>
+        - Transferir entidades. <br>
+        - Registro de las ultimas creaciones y transferencias. <br>
+        - Otras acciones. <br>
+        - Consejos. <br>
+    </p>
+  </div>
+<h2>Nueva entidad</h2>
+<form>
+  <div class="form-group">
+      <label for="exampleTextarea">Activo</label>
+      <select class="custom-select" [(ngModel)]="model.asset" [ngModelOptions]="{standalone: true}">
+            <option *ngFor="let owner of owners" [ngValue]="owner">{{owner.name}}</option>
+      </select>
+  </div>
+  <div class="form-group">
+      <label for="exampleTextarea">Propietario</label>
+      <select class="custom-select" [(ngModel)]="model.owner" [ngModelOptions]="{standalone: true}">
+            <option *ngFor="let owner of owners" [ngValue]="owner">{{owner.name}}</option>
+      </select>
+  </div>
+  <div class="form-group">
+      <label for="exampleTextarea">Datos (Formato JSON)</label>
+      <textarea class="form-control" [(ngModel)]="model.data" name="data" rows="3"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="createAsset()">Submit</button>
+</form>
+<h2>Transferir Activo</h2>
+<form>
+  <div class="form-group">
+      <label for="exampleTextarea">Activo</label>
+      <select class="custom-select" [(ngModel)]="transfer.asset" [ngModelOptions]="{standalone: true}">
+            <option *ngFor="let owner of owners" [ngValue]="owner">{{owner.name}}</option>
+      </select>
+  </div>
+  <div class="form-group">
+      <label for="exampleTextarea">Destinatario</label>
+      <select class="custom-select" [(ngModel)]="transfer.dest" [ngModelOptions]="{standalone: true}">
+            <option *ngFor="let owner of owners" [ngValue]="owner">{{owner.name}}</option>
+      </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleTextarea">Clave privada</label>
+    <textarea class="form-control" [(ngModel)]="transfer.ownerPrivateKey" name="ownerPrivateKey" rows="1"></textarea>
+    </div>
+  <div class="form-group">
+      <label for="exampleTextarea">Datos (Formato JSON)</label>
+      <textarea class="form-control" [(ngModel)]="transfer.data" name="data" rows="3"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="transferAsset()">Submit</button>
+</form>
+

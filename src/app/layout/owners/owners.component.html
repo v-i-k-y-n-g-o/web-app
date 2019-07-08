@@ -1,0 +1,78 @@
+
+<div class="jumbotron">
+        <h2>Ayuda</h2>
+        <p>
+            Aquí se muestra: <br>
+            - Crear nuevos datos. <br>
+            - Ultimos datos recibidos. <br>
+        </p>
+      </div>
+    <div class="card mb-3">
+        <div class="card-header">Propietarios</div>
+        <table class="card-body table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Tipo</th>
+                    <th>Función</th>
+                    <th>Clave Pública</th>
+                    <!-- <th>Clave Privada</th> -->
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let owner of owners; let i = index;">
+                    <th scope="row">{{i+1}}</th>
+                    <!-- nombre debe ser unico -->
+                    <td>{{owner.name}}</td>
+                    <td>{{owner.type}}</td> 
+                    <td>{{owner.job}}</td>
+                    <td>{{owner.publicKey}}</td>
+                    <!-- <td>{{owner.privateKey}}</td> -->
+                    <td><button type="button" class="btn btn-lg btn-danger" (click)="deleteOwner(owner.privateKey)"><i class="fas fa-trash-alt"></i></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h4>Nuevo Propietario</h4>
+    <form role="form">
+        <div class="form-group input-group">
+
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fa fa-user-circle"></i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="Nombre" [(ngModel)]="model.name" name="name">
+
+            <div class="col-xl-1"></div>
+            <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
+            </div> 
+
+            <select class="custom-select" [(ngModel)]="model.type" name="type" [ngModelOptions]="{standalone: true}">
+                    <option *ngFor="let type of types" [ngValue]="type">{{type}}</option>
+            </select>
+
+            <div class="col-xl-1">
+            </div>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-wrench"></i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="Función" [(ngModel)]="model.job" name="job">
+
+            <div class="col-xl-1">
+            </div>
+            <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
+            </div>
+            <input type="password" class="form-control" placeholder="Sesgo" [(ngModel)]="model.password" name="password">
+            
+        </div>
+    </form>
+    <div>
+            <!-- falta requirir campos -->
+        <button type="button" class="btn btn-lg btn-success" (click)="createOwner()"><i class="fas fa-user-plus" ></i> Nuevo propietario</button> 
+    </div>
+
+
+

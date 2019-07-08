@@ -1,0 +1,40 @@
+<div [@routerTransition]>
+    <div class="jumbotron">
+        <h2>Ayuda</h2>
+        <p>
+            Aquí se muestra:<br>
+            - Información completa de los nodos (estado, metricas, etc).<br>
+            - Conexión y configuración de los nodos de la blockchain.<br>
+            - Cambiar entre los distintos nodos.<br>
+            - Registro de las ultimas acciones del nodo. <br>
+        </p>
+    </div>
+    <hr>
+        <div class="row">
+            <div class="col-xl-4 text-xs-center">
+                <button id="button1" type="button" class="btn btn-primary btn-block" [disabled]="isDisabled1" (click)="createSupernode()">Crear SUPERNODO</button>
+            </div>
+            <div class="col-xl-4 text-xs-center">
+                <button id="button2" type="button" class="btn btn-warning btn-block" [disabled]="isDisabled2" (click)="startStopSupernode()"><span class="glyphicon glyphicon-play-circle"></span> Parar/Reanudar SUPERNODO</button>
+            </div>
+            <div class="col-xl-4 text-xs-center">
+                <button id="button3" type="button" class="btn btn-danger btn-block" [disabled]="isDisabled3" (click)="deleteSupernode()">Eliminar SUPERNODO</button>                
+            </div>
+        </div>
+    <hr/>
+    <hr>
+        <div class="row">
+            <div id="spinner1" class="spinner" style="visibility: hidden;">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div id="gifstop" class="row" style="display: block;" class="center">
+                    <img style="width:75%;height:75%;" src="assets/images/blockchain_stop.png"/>
+            </div>
+            <div id="gif" class="row" style="display:none;" class="center">
+                <img style="width:75%;height:75%;" src="assets/images/blockchain.gif"/>
+            </div>
+        </div>
+    <hr />
+</div>

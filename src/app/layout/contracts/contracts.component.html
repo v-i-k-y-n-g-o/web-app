@@ -1,0 +1,40 @@
+<div class="jumbotron">
+    <h2>Ayuda</h2>
+    <p>
+        Aquí se muestra: <br>
+        - Crear contratos. <br>
+        - Crear clausulas de contrato. <br>
+        - Ultimos accesos a contratos <br>
+        - Resultado de ultimos contratos. <br>
+    </p>
+  </div>
+  
+  <h2>Nuevo Contrato</h2>
+  <form role="form">
+      <div class="form-group input-group">
+  
+          <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="fa fa-user-circle"></i></span>
+          </div>
+          <input type="text" class="form-control" placeholder="Address" [(ngModel)]="model.address" name="address">
+          <div class="col-xl-1"></div>
+  
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"><i class="fa fa-user-circle"></i></span>
+        </div>
+        <input type="text" class="form-control" placeholder="Nombre" [(ngModel)]="model.name" name="name">
+        <div class="col-xl-1"></div>
+  
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1"><i class="fa fa-user-circle"></i></span>
+      </div>
+      <input type="text" class="form-control" placeholder="Descripcion" [(ngModel)]="model.description" name="description">
+      <div class="col-xl-1"></div>
+          
+          
+      </div>
+  </form>
+  <div>
+    <!-- falta requirir campos -->
+  <button type="button" class="btn btn-lg btn-success" ><i class="fas fa-user-plus" ></i> Nuevo contrato</button> 
+  </div>

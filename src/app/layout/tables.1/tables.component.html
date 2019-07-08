@@ -1,0 +1,64 @@
+<div [@routerTransition]>
+    <div class="jumbotron">
+        <h2>Ayuda</h2>
+        <p>
+            En esta sección se registran los propietarios. Un propietario es un ente real que estará a cargo de unos dispositivos.
+            También se puede entender como un grupo de dispositivos que compartirán la misma clave. Con el sesgo se genera la clave pública y privada,
+            al estar en una fase de prueba, la clave privada se le mostrará, pero en el futuro esto no será así. <br><br>
+
+            Para más información, lea la <a href="javascript:void(0)">documentación</a>.
+        </p>
+    </div>
+    <div class="card mb-3">
+        <div class="card-header">Propietarios</div>
+        <table class="card-body table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Función</th>
+                    <th>Clave Pública</th>
+                    <th>Clave Privada</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let owner of owners; let i = index;">
+
+
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{owner.name}}</td>
+                    <td>{{owner.job}}</td>
+                    <td>{{owner.publicKey}}</td>
+                    <td>{{owner.privateKey}}</td>
+                    <td><button type="button" class="btn btn-lg btn-danger"><i class="fas fa-trash-alt"></i></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h4>Nuevo Propietario</h4>
+    <form role="form">
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fa fa-user-circle"></i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="Nombre">
+            <div class="col-xl-1">
+            </div>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-wrench"></i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="Función">
+            <div class="col-xl-1">
+            </div>
+            <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="Sesgo">
+        </div>
+    </form>
+    <div>
+        <button type="button" class="btn btn-lg btn-success"><i class="fas fa-user-plus" (onClick)="createOwner()"></i> Nuevo propietario</button>
+    </div>
+
+</div>

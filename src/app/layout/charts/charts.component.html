@@ -1,0 +1,26 @@
+<div [@routerTransition]>
+    <div class="jumbotron">
+        <h2>Ayuda</h2>
+        <p>
+            Aquí se muestra:<br>
+            - Un resumen del estado de la plataforma (datos enviados, dispositivos conectados, nodos, etc)<br>
+            - Opción de ver un resumen más detallado de los datos.<br>
+            - Ultimas acciones que se han registrado en la plataforma y alertas.<br>
+            - Paquete que se ha contratado y opción de modificarlo.<br>
+        </p>
+    </div>
+    <div class="row">
+        <div id="elemento1" class="col-xl-3 col-lg-6" >
+            <app-stat [bgClass]="'primary'" [icon]="'fas fa-wifi'" [count]="1" [label]="'Dispositivos'" ></app-stat>
+        </div>
+        <div id="elemento2" class="col-xl-3 col-lg-6" >
+            <app-stat [bgClass]="'warning'" [icon]="'fa fa-archive'" [count]="5" [label]="'Activos'" ></app-stat>
+        </div>
+        <div id="elemento3" class="col-xl-3 col-lg-6" >
+            <app-stat [bgClass]="'success'" [icon]="'fas fa-database'" [count]="23" [label]="'Datos'" ></app-stat>
+        </div>
+        <div id="elemento4" class="col-xl-3 col-lg-6" >
+            <app-stat [bgClass]="'danger'" [icon]="'fa fa-cubes'" [count]="1" [label]="'Nodos'"></app-stat>
+        </div>
+    </div>
+</div>
