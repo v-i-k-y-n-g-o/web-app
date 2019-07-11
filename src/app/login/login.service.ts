@@ -12,7 +12,7 @@
       }
 
       onLoggedin(model): Observable<any> { // actualizar
-        return this.http.post('http://localhost:3000/api/owners/',{username: model.username,password: model.password}).pipe(map(data => {
+        return this.http.post('http://localhost:3000/auth',{username: model.username,password: model.password}).pipe(map(data => {
           return data
         }))     
       }

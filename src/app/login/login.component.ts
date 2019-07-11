@@ -20,8 +20,10 @@ export class LoginComponent implements OnInit {
 
     onLoggedin() {
         this.loginService.onLoggedin(this.model).subscribe(data => {
-            alert(data)
-            // localStorage.setItem('isLoggedin', 'true');
+            let resp = JSON.parse(data._body);
+            localStorage.setItem('token', resp.token);
+            localStorage.setItem('isLoggedin', 'true');
+            window.location.href = '/home';
         });
         
     }
