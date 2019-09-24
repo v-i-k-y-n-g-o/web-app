@@ -12,19 +12,28 @@ import { environments } from '../../environments/environments2';
 })
 export class LoginComponent implements OnInit {
 
-    public model = {};
+    public model = {
+        username: "",
+        password: ""
+    };
 
     constructor(public router: Router, private loginService: LoginService) {}
 
-    ngOnInit() {}
+    ngOnInit() {
+        this.model.username = "diego";
+        this.model.password = "diego";
+
+    }
 
     onLoggedin() {
-        this.loginService.onLoggedin(this.model).subscribe(data => {
-            let resp = JSON.parse(data._body);
-            localStorage.setItem('token', resp.token);
-            localStorage.setItem('isLoggedin', 'true');
-            window.location.href = '/home';
-        });
+        localStorage.setItem('isLoggedin', 'true');
+        window.location.href = '/home';
+        // this.loginService.onLoggedin(this.model).subscribe(data => {
+        //     let resp = JSON.parse(data._body);
+        //     localStorage.setItem('token', resp.token);
+        // localStorage.setItem('isLoggedin', 'true');
+        // window.location.href = '/home';
+        // });
         
     }
 }

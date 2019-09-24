@@ -26,4 +26,10 @@ export class DataService {
       return data
     }))      
   }
+
+  getTemperature(): Observable<any> {
+    return this.http.get('http://localhost:3001/api/v1/data/12345').pipe(map(data => {
+      return data
+    }))      
+  }
 }

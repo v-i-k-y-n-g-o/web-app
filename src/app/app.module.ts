@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
 import { ToastModule } from 'primeng/components/toast/toast';
+import { ChartModule } from 'primeng/chart';
 
 
 
@@ -44,7 +45,8 @@ export const createTranslateLoader = (http: HttpClient) => {
         AppRoutingModule,
         HttpModule,
         FormsModule,
-        ToastModule
+        ToastModule,
+        ChartModule
     ],
     declarations: [AppComponent],
     providers: [AuthGuard,DashboardService],
