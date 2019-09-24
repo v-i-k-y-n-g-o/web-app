@@ -60,6 +60,7 @@ export class DataComponent implements OnInit {
   };
 
   public data: any;
+  public tmp: any;
   public response: any;
 
   constructor(private dataService: DataService, private ownersService: OwnersService, private messageService: MessageService) {
@@ -74,6 +75,17 @@ export class DataComponent implements OnInit {
           }
       ]
   }
+  this.tmp = {
+    labels: [],
+    datasets: [
+        {
+            label: 'Temperature',
+            data: [],
+            fill: false,
+            borderColor: '#4bc0c0'
+        }
+    ]
+}
   
   }
 
@@ -107,9 +119,10 @@ export class DataComponent implements OnInit {
       this.response = JSON.parse(data["_body"]);
       console.log(this.response)
       for (let index in this.response) {
-        this.data.labels.push(this.response[index].timestamp);
-        this.data.datasets[0].data.push(this.response[index].metadata.temperature);
+        this.tmp.labels.push(this.response[index].timestamp);
+        this.tmp.datasets[0].data.push(this.response[index].temperature);
       }
+      this.data = this.tmp;
       console.log(this.datas)
     });
   }
